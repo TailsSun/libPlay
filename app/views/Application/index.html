@@ -1,0 +1,66 @@
+#{extends 'main.html' /}
+#{set title:'Lib' /}
+
+#{if flash.error}
+    <p style="color:#c00">
+        ${flash.error}
+    </p>
+#{/if}
+
+#{if flash.success}
+<p class="success">${flash.success}</p>
+#{/if}
+
+<form action="@{Application.sayHello()}" method="GET">
+    <input type="text" name="name" />
+    <input type="submit" value="Добавить читателя" />
+</form>
+<br>
+<form action="@{Application.printUsers()}" method="GET">
+
+    <input type="submit" value="показать всех читателей" />
+</form>
+<br>
+<form action="@{Application.addBook()}" method="GET">
+    <input type="text" name="name" />
+    <input type="submit" value="Добавить книгу в библиотеку" />
+</form>
+<br>
+<form action="@{Application.printBooks()}" method="GET">
+
+    <input type="submit" value="показать все книги" />
+</form>
+
+<br><br>
+<form action="@{Book.getBook()}" method="GET">
+   введите ваше имя : <input type="text" name="name" />
+    <br>
+   введите название книги : <input type="text" name="book" />
+
+    <input type="submit" value="Взять книгу" />
+</form>
+
+<br><br>
+<form action="@{Book.returnBook()}" method="GET">
+    введите ваше имя : <input type="text" name="name" />
+    <br>
+    введите название книги : <input type="text" name="book" />
+
+    <input type="submit" value="Вернуть книгу" />
+</form>
+
+<br><br>
+<form action="@{Card.printUsers()}" method="GET">
+    введите имя : <input type="text" name="name" />
+    <input type="submit" value="Выгрузка по читателям" />
+</form>
+<br><br>
+<form action="@{Card.printCard()}" method="GET">
+    введите название книги : <input type="text" name="name" />
+    <input type="submit" value="Выгрузка по книгам" />
+</form>
+<br><br>
+
+<form action="@{Card.printAllUsers()}" method="GET">
+      <input type="submit" value="Выгрузка карточки" />
+</form>
